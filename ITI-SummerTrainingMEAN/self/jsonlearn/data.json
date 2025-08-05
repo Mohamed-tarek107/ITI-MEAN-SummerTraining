@@ -1,0 +1,15 @@
+{
+    "username" : "tarek",
+    "country": "egypt",
+    "skills": [
+    "HTML","CSS","JS"
+],
+    "addreses": {
+        "egypt":"hadayek",
+        "KSA":"malaz",
+        "USA": "california"
+    },
+    "Age" : 36,
+    "working" : false,
+    "identity" : null
+}

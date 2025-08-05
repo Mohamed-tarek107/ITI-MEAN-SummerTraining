@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",                  // modern JS features
+    "module": "ESNext",                  // use ESModules (import/export)
+    "moduleResolution": "node",         // resolves modules like Node.js
+    "esModuleInterop": true,            // allow default imports from CommonJS
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,                     // enable all strict type-checking
+    "skipLibCheck": true,               // skip type checks for node_modules
+    "verbatimModuleSyntax": true,       // avoids modifying your imports
+    "resolveJsonModule": true,           // allows importing JSON files
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": ["**/*.ts"],               // include all .ts files anywhere
+  "exclude": ["node_modules", "dist"]   // ignore compiled or external files
+}

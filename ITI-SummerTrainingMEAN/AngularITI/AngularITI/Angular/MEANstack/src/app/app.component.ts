@@ -8,5 +8,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
+  //entry point
+  
   protected readonly title = signal('MEANstack');
 }

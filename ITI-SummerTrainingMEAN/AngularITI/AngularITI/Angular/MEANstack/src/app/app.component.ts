@@ -1,10 +1,14 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Products } from "./components/products/products";
+import { Navbar } from './components/navbar/navbar';
 // meta data
 //decoretor
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  //guest list
+  //bahot el class bta3 el component
+  imports: [Products,Navbar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

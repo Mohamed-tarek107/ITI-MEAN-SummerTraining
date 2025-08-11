@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-cards',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './user-cards.html',
   styleUrl: './user-cards.css'
 })
 export class UserCards {
+  searchvalue:string = "";
+
+  
+
   users = [
   {
     "id": 1,
@@ -1838,7 +1843,13 @@ export class UserCards {
     },
     "role": "user"
   }
-]
+] 
+  filteredUsers:any = [...this.users]
 
-
+  filters() {
+    this.filteredUsers = this.users.filter(user => user.username.toLowerCase().includes(this.searchvalue.toLowerCase()))
+  }
 }
+
+
+

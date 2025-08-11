@@ -4,7 +4,7 @@ import { UserCards } from './components/user-cards/user-cards';
 
 @Component({
   selector: 'app-root',
-  imports: [UserCards],
+  imports: [UserCards,],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

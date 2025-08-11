@@ -1,1 +1,38 @@
-<h1>Working</h1>
+
+
+
+<div class="container my-5">
+
+        <!--elsearch bar two way binidng-->
+    <div class="mb-4 d-flex justify-content-center">
+  <input type="text" class="form-control shadow-sm" style="max-width: 400px; border-radius: 30px; padding: 10px 20px; border: 2px solid #7ca7b1;" 
+  placeholder="Search users..." [(ngModel)]="searchvalue"  (input)="filters()"/> 
+</div>
+
+    
+
+<div class="row justify-content-center g-4">
+    
+    @for (user of filteredUsers; track user.id) {
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+        <div class="text-center p-4"
+        style="width: 400px; background-color: #f6f6f6; border: 2px solid #7ca7b1; border-radius: 20px;">
+        <div class="d-flex justify-content-center">
+            <img [src]="user.image"
+            alt="User Photo"
+            style="width: 130px; height: 130px; border: 2px solid #7ca7b1; border-radius: 50%; background-color: white;">
+        </div>
+        <div style="height: 10px;"></div>
+
+
+        <!-- EL data (Binding interpolation)-->
+        <span class="badge mb-2" style="background-color: #f15b5b;">{{ user.role }}</span>
+        <p class="mb-0 fw-semibold">Username: {{ user.username }}</p>
+        <p class="mb-0">Email: {{ user.email }}</p>
+        <p class="mb-0">Phone: {{ user.phone }}</p>
+        <p class="mb-0">Birthdate: {{ user.birthDate }}</p>
+        </div>
+    </div>
+    }
+</div>
+</div>

@@ -1,1 +1,9 @@
-<p>movie-list works!</p>
+<div class="col" *ngFor="let myMovie of myMovie">
+    <div class="card h-100">
+  <img src="https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp" class="card-img-top" alt="iPhone X">
+      <div class="card-body">
+        <h5 class="card-title">{{ myMovie.title }}</h5>
+        <p class="card-text">Stylish and sleek design with top-notch features. It comes with facial recognition and OLED display.</p>
+      </div>
+    </div>
+</div>

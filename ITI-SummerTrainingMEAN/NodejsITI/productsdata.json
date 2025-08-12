@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Mouse",
+    "description": "Ergonomic wireless mouse with adjustable DPI",
+    "price": 19.99,
+    "category": "Electronics",
+    "inStock": true
+  },
+  {
+    "id": 2,
+    "name": "Mechanical Keyboard",
+    "description": "Backlit mechanical keyboard with blue switches",
+    "price": 49.99,
+    "category": "Electronics",
+    "inStock": true
+  },
+  {
+    "id": 3,
+    "name": "Office Chair",
+    "description": "Adjustable office chair with lumbar support",
+    "price": 129.99,
+    "category": "Furniture",
+    "inStock": false
+  },
+  {
+    "id": 4,
+    "name": "Running Shoes",
+    "description": "Lightweight running shoes with breathable mesh",
+    "price": 59.99,
+    "category": "Footwear",
+    "inStock": true
+  },
+  {
+    "id": 5,
+    "name": "Coffee Maker",
+    "description": "12-cup programmable coffee maker with timer",
+    "price": 39.99,
+    "category": "Home Appliances",
+    "inStock": true
+  }
+]

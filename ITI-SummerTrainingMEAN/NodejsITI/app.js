@@ -17,8 +17,8 @@ server.get('/products/:id', (req,res) => {
         res.send('no product found')
     }
 })
-
-
+// query string
+//  ?key=value
 
 server.listen(3000, () => {
     console.log('server connected')

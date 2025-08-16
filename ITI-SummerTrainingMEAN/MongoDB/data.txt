@@ -1,0 +1,121 @@
+db.students.insertOne({
+  fName: "Mrihan",
+  lName: "Mohamed",
+  age: 26,
+  faculty: { name: "FCI", address: "Minia" },
+  grades: [
+    { cName: "c#", grade: 60, pass: true },
+    { cName: "JS", grade: 100, pass: true }
+  ],
+  isFired: false
+})
+
+
+db.students.insertMany([
+  {
+    fName: "Ahmed",
+    lName: "Ali",
+    age: 20,
+    faculty: { name: "Engineering", address: "Cairo" },
+    grades: [
+      { cName: "Math", grade: 45, pass: false },
+      { cName: "Physics", grade: 70, pass: true }
+    ],
+    isFired: true
+  },
+  {
+    fName: "Sara",
+    lName: "Hassan",
+    age: 22,
+    faculty: { name: "Commerce", address: "Alexandria" },
+    grades: [
+      { cName: "Accounting", grade: 85, pass: true },
+      { cName: "Statistics", grade: 90, pass: true }
+    ],
+    isFired: false
+  },
+  {
+    fName: "Omar",
+    lName: "Ahmed",
+    age: 19,
+    faculty: { name: "Law", address: "Giza" },
+    grades: [
+      { cName: "Criminal Law", grade: 65, pass: true },
+      { cName: "Civil Law", grade: 40, pass: false }
+    ],
+    isFired: false
+  }
+])
+
+
+4. Retrieve the following data:
+All Students.
+
+= db.students.find()
+
+Student with specific First Name.
+
+= db.students.find({fName:"Sara"})
+
+Students who his First Name=Ahmed, or Last Name= Ahmed.
+
+= db.students.find({
+ $or: [
+  {fName:"Ahmed"},
+  {lName:"Ahmed"}
+ ]
+})
+
+Students that their First name isn't "Ahmed".
+
+= db.students.find({
+  fName: {$ne: "Ahmed"}
+})
+
+Students with Age less than 21.
+
+= db.students.find({age:{$lt: 21}})
+
+All fired students.
+
+= db.students.find({isFired: true})
+
+Students with Age more than or equal to 21, and their faculty isn't NULL.
+
+= db.students.find({
+  $and: [
+    {age: {$gte: 21}},
+    {faculty: {$ne: null}}
+  ]
+})
+
+Display student with specific First Name, and display his First Name, Last name, IsFired fields only.
+
+= db.students.find(
+  { fName: "Sara" },
+  { fName: 1, lName: 1, isFired: 1, _id: 0 }
+)
+
+
+Update the student with specific FirstName, and change his LastName.
+Try UpdateOne() statement :
+
+
+= db.students.updateOne({fName:"Sara"}, {$set: {lName: "Mohamed"}})    
+
+Try UpdateMany().
+
+= db.students.updateMany({isFired:false}, {$set: {isFired:true}})
+
+Try Replace().
+
+= db.students.replaceOne(
+  { fName: "Ahmed" },
+  { fName: "Ahmed", lName: "Saleh", age: 25, isFired: false }
+)
+
+Delete Fired students
+
+= db.students.deleteOne({fName: "Ahmed"})
+
+

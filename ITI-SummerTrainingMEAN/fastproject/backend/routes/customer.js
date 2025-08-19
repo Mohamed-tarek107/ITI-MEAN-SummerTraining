@@ -7,7 +7,7 @@ const Customer = require('../models/customer')
 //get list
 router.get('/',async(req,res) => {
     try {
-        const customers = await customer.find();
+        const customers = await Customer.find();
         res.status(200).json(customers);
     } catch (error) {
         res.status(500).json({ message:"an error occured"})
@@ -19,7 +19,7 @@ router.get('/',async(req,res) => {
 router.get('/:id',async(req,res) => {
     try {
         const id = req.params.id
-        const customers = await customer.findOne({ _id: id })
+        const customers = await Customer.findOne({ _id: id })
         res.status(200).json(customers);
     } catch (error) {
         res.status(500).json({ message:"an error occured"})
@@ -30,7 +30,7 @@ router.get('/:id',async(req,res) => {
 router.post('/',async(req,res) => {
     try {
         const customer = new Customer(req.body);
-        const savedcustomer = customer.save()
+        const savedcustomer = await customer.save()
         res.status(200).json(savedcustomer);
     } catch (error) {
         res.status(500).json({ message:"an error occured"})
@@ -42,17 +42,13 @@ router.post('/',async(req,res) => {
 router.put('/:id',async(req,res) => {
     try {
         const id = req.params.id;
-        const customer = req.body;
-        const updatedcustomer = customer.findOneAndUpdate(
-            {
-                _id : id
-            },
-            {
-                $set:customer
-            },
-            {
-                new:true
-    })
+        const customerdata = req.body;
+        const updatedcustomer = await Customer.findOneAndUpdate(
+            { _id : id },
+            { $set:customerdata },
+            {new:true}
+    );
+
         res.status(200).json(updatedcustomer);
 
     } catch (error) {
@@ -65,10 +61,13 @@ router.put('/:id',async(req,res) => {
 router.delete('/:id',async(req,res) => {
     try {
         const id = req.params.id;
-        const deletedcustomer = customer.deleteOne({ _id : id })
+        const deletedcustomer = await Customer.deleteOne({ _id : id })
         res.status(200).json(deletedcustomer);
 
     } catch (error) {
         res.status(500).json({ message:"an error occured"})
     }
 })
+
+
+module.exports = router;
